@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ip-Url-Locate</title>
+    <meta name="author" content="Your name">
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="keywords,here">
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <!-- font awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- iplocate stylesheet -->
+    <link href="css/iplocate.css" rel="stylesheet">
+  </head>
+  <body> 
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">IP URL Locate</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" method="get">
+            <div class="form-group">
+              <input id="ipaddress" type="text" placeholder="IP adress or URL" class="form-control">
+            </div>
+            <button id="submit" class="btn btn-success">Locate</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    
+    <!-- Main jumbotron for primary message -->
+    <div class="jumbotron">
+      <div class="container">
+        <h2>Hello, world!</h2>
+        <p>This is a simple demo of ip or URL location with jquery, based on <a href="http://ip-api.com/#" target="blank">IP-API</a>.</p>
+      </div>
+    </div>
+    
+    <div class="container content">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h2>Results</h2>
+          <div id="ipinformation" class="target">
+            <ul class="contentclass">
+              <li class="ipclass"></li>
+              <li class="grey"></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li class="grey"><a href="#" class="button"><i class="fa fa-map"></i> Google Map</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <hr>
+    </div> <!-- /container -->
+    
+    <footer>
+      <div class="container">
+        <p>❤ This site content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="blank">Creative Commons Attribution 4.0 International License</a> ❤.</p>
+      </div>
+    </footer>
+    
+    <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script></script>
+  <!-- Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- iplocate script -->
+  <script src="js/iplocate.js"></script>
+  <!-- Call to the script -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#ipinformation').iplocate({
+        // ip-api options
+        ip: '208.80.152.201', // Wikimedia IP
+        fields: 'country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query,status,message',
+        lang:'en', // en, de, es, pt-BR, fr, ja, zh-CN, ru
+        // iplocate render options
+        loader: 'Please wait while loading the information',
+        showip: true,
+        showtable: false, // true for "table" table>tr>td and false for "list" ul>li>span
+        showkey: true,
+        keyvalseparator: ': ',
+        ipclass: 'ipclass',
+        contentclass: 'contentclass',
+        keyclass: 'keyclass',
+        valclass: 'valclass',
+        maplink: true
+      });
+      $( "#submit" ).on( "click", function(e) {
+        var val = $( '#ipaddress' ).val();
+        $('#ipinformation').iplocate({
+          // ip-api options
+          ip: val, // Wikimedia IP
+          fields: 'country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query,status,message',
+          lang:'en', // en, de, es, pt-BR, fr, ja, zh-CN, ru
+          // iplocate render options
+          loader: 'Please wait while loading the information',
+          showip: true,
+          showtable: false, // true for "table" table>tr>td and false for "list" ul>li>span
+          showkey: true,
+          keyvalseparator: ': ',
+          ipclass: 'ipclass',
+          contentclass: 'contentclass',
+          keyclass: 'keyclass',
+          valclass: 'valclass',
+          maplink: true
+        });
+        e.preventDefault()
+      });
+    });
+  </script>
+</body>
+</html>        
