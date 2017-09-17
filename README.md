@@ -5,7 +5,8 @@ IP URL Location is a simple jquery script based on ip-api.com that give you loca
 - a URL
 
 The location datas are:
- if successful query:
+
+if successful query:
  
  <table class="inline">
 
