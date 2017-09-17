@@ -18,6 +18,7 @@ body{
 }
 .target{
   background-color: #fff;
+  margin-bottom: 60px;
 }
 .form-control, .btn{
   border-radius: 0;

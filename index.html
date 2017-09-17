@@ -53,9 +53,29 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <h2>Results</h2>
-          <div id="ipinformation" class="target">
-            <!-- Location datas come here -->
+          <h3>Results from ipapi.co</h3>
+          <div id="ipinformation5" class="target">
+            <!-- Location data from ipapi.com goes here -->
+          </div>
+          <h3>Results from ipinfo.io</h3> <small>Free usage of this API is limited to 1,000 API requests per day</small>
+          <div id="ipinformation3" class="target">
+            <!-- Location data from ipinfo.io goes here -->
+          </div>
+          <h3>Results from extreme-ip-lookup.com</h3> <small>Free usage of this API is limited to 200 requests per minute.</small>
+          <div id="ipinformation4" class="target">
+            <!-- Location data from extreme-ip-lookup.com goes here -->
+          </div>
+          <h3>Results from freegeoip.net</h3> <small>Not recommended: Latitude and longitude are different from the other ip location api result.</small>
+          <div id="ipinformation0" class="target">
+            <!-- Location data from freegeoip.net goes here -->
+          </div>
+          <h3>Results from ip-api.com</h3> <small>only on HTTP request</small>
+          <div id="ipinformation1" class="target">
+            <!-- Location data from ip-api.com goes here -->
+          </div>
+          <h3>Results from geoip.nekudo.com</h3> <small>Not recommended: Latitude and longitude are different from the other ip location api result.</small>
+          <div id="ipinformation2" class="target">
+            <!-- Location data from geoip.nekudo.com goes here -->
           </div>
         </div>
       </div>
@@ -78,10 +98,10 @@
   <!-- Call to the script -->
   <script type="text/javascript">
     $(document).ready(function () {
-      $('#ipinformation').iplocate({
-        // ip-api options
+
+      $('#ipinformation0').iplocate({
+        service: 0, // 0 : 'freegeoip.net', 1 : 'ip-api.com', 2 : 'geoip.nekudo.com', 3 : 'ipinfo.io', 4 : 'extreme-ip-lookup.com' , 5 : 'ipapi.co'
         ip: '208.80.152.201', // Wikimedia IP
-        fields: 'country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query,status,message',
         lang:'en', // en, de, es, pt-BR, fr, ja, zh-CN, ru
         // iplocate render options
         loader: 'Please wait while loading the information',
@@ -93,27 +113,25 @@
         contentclass: 'contentclass',
         keyclass: 'keyclass',
         valclass: 'valclass',
-        maplink: true
+        maplink: true,
+        maptitle: 'Google Map'
       });
+      
+      $('#ipinformation1').iplocate({service: 1});
+      $('#ipinformation2').iplocate({service: 2});
+      $('#ipinformation3').iplocate({service: 3});
+      $('#ipinformation4').iplocate({service: 4});
+      $('#ipinformation5').iplocate({service: 5});
+      
+      
       $( "#submit" ).on( "click", function(e) {
         var val = $( '#ipaddress' ).val();
-        $('#ipinformation').iplocate({
-          // ip-api options
-          ip: val, // Wikimedia IP
-          fields: 'country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query,status,message',
-          lang:'en', // en, de, es, pt-BR, fr, ja, zh-CN, ru
-          // iplocate render options
-          loader: 'Please wait while loading the information',
-          showip: true,
-          showtable: false, // true for "table" table>tr>td and false for "list" ul>li>span
-          showkey: true,
-          keyvalseparator: ': ',
-          ipclass: 'ipclass',
-          contentclass: 'contentclass',
-          keyclass: 'keyclass',
-          valclass: 'valclass',
-          maplink: true
-        });
+        $('#ipinformation0').iplocate({service: 0, ip: val});
+        $('#ipinformation1').iplocate({service: 1, ip: val});
+        $('#ipinformation2').iplocate({service: 2, ip: val});
+        $('#ipinformation3').iplocate({service: 3, ip: val});
+        $('#ipinformation4').iplocate({service: 4, ip: val});
+        $('#ipinformation5').iplocate({service: 5, ip: val});
         e.preventDefault()
       });
     });
