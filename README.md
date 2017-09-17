@@ -9,7 +9,7 @@ IP URL Location is a simple jquery script based on 5 IP API location:
 - https://extreme-ip-lookup.com/json/
 - https://ipapi.co/
 
-
+[Demo](https://benfarhat.github.io/jQuery-IP-URL-Location/)
 
 ### Usage
 
