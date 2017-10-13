@@ -37,7 +37,7 @@
     
     console.log(url_pattern[def.service]); 
     $.getJSON( url_pattern[def.service], function( result ) {
-      var items = [];
+      var items = [], data;
       $("#" + id).empty();
       
       if (def.showip) {
